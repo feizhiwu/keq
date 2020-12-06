@@ -50,6 +50,9 @@ func Day(days int) string {
 
 func Week(weeks int) string {
 	weekDay := int(time.Now().Weekday())
+	if weekDay == 0 {
+		weekDay = 7
+	}
 	timestamp := makeInt(Time()) - (weekDay-1-weeks*7)*24*3600
 	return Date(timestamp, "2006-01-02")
 }
